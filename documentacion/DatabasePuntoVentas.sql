@@ -1,53 +1,56 @@
 
 
-CREATE TABLE rol(
-idRol INT PRIMARY KEY NOT NULL,
-nombre VARCHAR(45)
+CREATE TABLE rol (
+idRol INT SERIAL PRIMARY KEY NOT NULL,
+nombre VARCHAR(45) NOT NULL
 );
 
-CREATE TABLE usuario(
-idUsuario INT PRIMARY KEY NOT NULL,
-nombre VARCHAR(45),
-idrol INT
+CREATE TABLE usuario (
+idUsuario INT SERIAL PRIMARY KEY NOT NULL,
+nombre VARCHAR(45) NOT NULL,
+idrol INT NOT NULL
 );
 
-CREATE TABLE categoria(
-idCategoria  INT PRIMARY KEY NOT NULL,
-nombre VARCHAR(45),
+CREATE TABLE categoria (
+idCategoria  INT  SERIAL PRIMARY KEY NOT NULL,
+nombre VARCHAR(45) NOT NULL,
 imagen VARCHAR(300)
 );
 
-CREATE TABLE producto(
-idProducto INT PRIMARY KEY NOT NULL,
-nombre VARCHAR(45),
-precio DECIMAL,
+CREATE TABLE producto (
+idProducto INT SERIAL PRIMARY KEY NOT NULL,
+nombre VARCHAR(45) NOT NULL,
+precio DECIMAL NOT NULL,
 imagen VARCHAR(300),
-idCategoria INT
+idCategoria INT NOT NULL
 );
 
 CREATE TABLE sucursal (
-idSucursal INT PRIMARY KEY NOT NULL,
-nombre VARCHAR(45),
+idSucursal INT SERIAL PRIMARY KEY NOT NULL,
+nombre VARCHAR(45) NOT NULL,
 ubicacion VARCHAR(45)
 );
 
-CREATE TABLE ventas (
-idVenta INT PRIMARY KEY NOT NULL,
-identificadorcliente CHAR,
-tipoVenta CHAR,
-fechaCreacion DATETIME,
-fechaPego DATETIME,
-status CHAR,
+CREATE TABLE venta (
+idVenta INT SERIAL PRIMARY KEY NOT NULL,
+identificadorcliente CHAR NOT NULL,
+tipoVenta CHAR NOT NULL,
+fechaCreacion DATETIME NOT NULL,
+fechaPego DATETIME NOT NULL,
+status CHAR NOT NULL,
 tipoPago CHAR,
 montoTotal DECIMAL,
 montoRecibido DECIMAL,
 montoEntregado	DECIMAL,
-idSucursal INT,
-idUsuario INT
+idSucursal INT NOT NULL,
+idUsuario INT NOT NULL
 );
-CREATE TABLE detalle(
-idDetalle INT PRIMARY KEY NOT NULL,
-idVenta INT,
-idProducto INT,
-cantidad DECIMAL
+
+CREATE TABLE detalle (
+idDetalle INT SERIAL PRIMARY KEY NOT NULL,
+idVenta INT NOT NULL,
+idProducto INT NOT NULL,
+cantidad DECIMAL NOT NULL
 );
+
+ALTER TABLE
