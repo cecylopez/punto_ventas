@@ -8,6 +8,7 @@ nombre VARCHAR(45) NOT NULL
 CREATE TABLE usuario (
 idUsuario SERIAL PRIMARY KEY NOT NULL,
 nombre VARCHAR(45) NOT NULL,
+password VARCHAR NOT NULL,
 idrol INT NOT NULL
 );
 
@@ -82,3 +83,5 @@ ALTER TABLE "detalle"
    ADD CONSTRAINT fk_idProducto
    FOREIGN KEY (idProducto)
    REFERENCES "producto"(idProducto);
+
+ALTER TABLE usuario ADD COLUMN password VARCHAR;
